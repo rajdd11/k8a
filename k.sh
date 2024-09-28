@@ -22,5 +22,20 @@ alias kctx='kubectl config current-context'
 alias kchns='kubectl config set-context --current --namespace='
 alias kcns='f() { kc config set-context --current --namespace="$1" | unset -f f; }; f'
 
+
+
+# kubectl api-resources 
+#			echo -e "KIND:\t\tVERSION:"; for kind in $(kubectl api-resources | tail -n +2 | awk '{print $1}'); do kubectl explain $kind | awk '/KIND:/ {k=$2} /VERSION:/ {print k "\t\t" $2}'; done
+# kubectl explain replicaset
+
+# kc get no 
+# kc get ns 
+# kc get rs 
+# kc get svc 
+# kc get pods --all-namespaces
+# kc get pods -A
+
+
+
 clear
 
