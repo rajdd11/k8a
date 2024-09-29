@@ -24,6 +24,15 @@ alias kcns='f() { kc config set-context --current --namespace="$1" | unset -f f;
 
 ##### how to enable autocomplete if its not already.
 
+
+# Check if kubectl auto-completion is already installed
+if ! kubectl completion bash &>/dev/null; then
+    # Install kubectl auto-completion
+    kubectl completion bash >/etc/bash_completion.d/kubectl
+    # Source the completion script
+    source /etc/bash_completion.d/kubectl
+fi
+
 # kubectl api-resources 
 #			echo -e "KIND:\t\tVERSION:"; for kind in $(kubectl api-resources | tail -n +2 | awk '{print $1}'); do kubectl explain $kind | awk '/KIND:/ {k=$2} /VERSION:/ {print k "\t\t" $2}'; done
 # kubectl explain replicaset
